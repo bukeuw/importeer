@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+  php:
+    build:
+      args:
+        user: erauser
+        uid: 1000
+      context: ./
+      dockerfile: app.dockerfile
+    container_name: importeer-php
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./web:/var/www
+    networks:
+      - bunet
+
+  nginx:
+    image: nginx:alpine
+    container_name: importeer-nginx
+    restart: unless-stopped
+    ports:
+      - 8883:80
+    volumes:
+      - ./web:/var/www
+      - ./ssl:/etc/certs
+      - ./config/nginx:/etc/nginx/conf.d/
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - bunet
+
+networks:
+  bunet:
+    driver: bridge
