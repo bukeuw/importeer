@@ -13,3 +13,4 @@
 
 Route::get('/', 'ProductController@importPage');
 Route::post('/import', 'ProductController@import');
+Route::post('/import-json', 'ProductController@importJson');
