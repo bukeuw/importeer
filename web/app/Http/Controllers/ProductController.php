@@ -11,7 +11,9 @@ class ProductController extends Controller
 {
     public function importPage()
     {
-        return view('import-page');
+        $products = Product::all();
+
+        return view('import-page', compact('products'));
     }
 
     public function import(Request $request)
