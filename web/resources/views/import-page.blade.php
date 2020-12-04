@@ -27,7 +27,15 @@
                                 <th>Price</th>
                             </tr>
                         </thead>
-                        <tbody id="data-table"></tbody>
+                        <tbody id="data-table">
+                            @foreach ($products as $product)
+                                <tr>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->description }}</td>
+                                    <td>{{ $product->price }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
