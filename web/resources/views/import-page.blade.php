@@ -25,6 +25,7 @@
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody id="data-table">
@@ -33,6 +34,11 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->description }}</td>
                                     <td>{{ $product->price }}</td>
+                                    <td>
+                                        <a class="btn btn-primary" href="/products/{{ $product->id }}">
+                                            View
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

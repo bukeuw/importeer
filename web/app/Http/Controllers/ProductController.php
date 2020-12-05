@@ -72,4 +72,11 @@ class ProductController extends Controller
 
         return view('image-upload', compact('products'));
     }
+
+    public function view($productId)
+    {
+        $product = Product::findOrFail($productId);
+
+        return view('product.detail', compact('product'));
+    }
 }

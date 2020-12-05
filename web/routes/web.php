@@ -16,3 +16,4 @@ Route::post('/import', 'ProductController@import');
 Route::post('/import-json', 'ProductController@importJson');
 Route::get('/image-upload', 'ProductController@uploadForm');
 Route::post('/image-upload', 'ProductController@upload');
+Route::get('/products/{id}', 'ProductController@view');
