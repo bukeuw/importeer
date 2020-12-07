@@ -53,8 +53,8 @@ class ProductController extends Controller
         $image = $request->image;
 
         if ($image->isValid()) {
-            $imagePath = $image->store('public/images');
-            $imageUrl = "/storage/$imagePath";
+            $imagePath = $image->store('images', 'assets');
+            $imageUrl = "/assets/$imagePath";
             Image::create([
                 'product_id' => $request->product_id,
                 'url' => $imageUrl,
