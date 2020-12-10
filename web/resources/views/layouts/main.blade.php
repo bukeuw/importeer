@@ -13,6 +13,8 @@
   </head>
   <body>
 
+    @include('layouts.navbar')
+
     @yield('content')
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
