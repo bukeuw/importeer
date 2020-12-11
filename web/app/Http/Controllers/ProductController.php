@@ -7,6 +7,7 @@ use App\Image;
 use Illuminate\Http\Request;
 use App\Imports\ProductImport;
 use App\Product;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -78,5 +79,14 @@ class ProductController extends Controller
         $product = Product::findOrFail($productId);
 
         return view('product.detail', compact('product'));
+    }
+
+    public function create()
+    {
+        if (Gate::allows('product-create')) {
+            return view('product.create');
+        }
+
+        return redirect('/')->with('error', 'You are not authorize to access the page');
     }
 }

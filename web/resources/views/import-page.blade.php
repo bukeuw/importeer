@@ -6,6 +6,14 @@
         <div class="col-4 offset-4">
             <div class="card mt-5">
                 <div class="card-body">
+
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
+
+                    @if (auth()->user()->isAdmin())
                     <form id="uploadForm" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
@@ -18,6 +26,7 @@
                             <button class="btn btn-primary" type="submit">Upload File</button>
                         </div>
                     </form>
+                    @endif
 
                     <table class="table">
                         <thead>

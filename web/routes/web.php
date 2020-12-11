@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/image-upload', 'ProductController@uploadForm');
     Route::post('/image-upload', 'ProductController@upload');
     Route::get('/products/{id}', 'ProductController@view');
+    Route::get('/product-create', 'ProductController@create');
 
     // user management page
     Route::resource('/users', 'UserController');
