@@ -89,4 +89,11 @@ class ProductController extends Controller
 
         return redirect('/')->with('error', 'You are not authorize to access the page');
     }
+
+    public function chart()
+    {
+        $products = Product::all();
+
+        return view('product-chart', compact('products'));
+    }
 }

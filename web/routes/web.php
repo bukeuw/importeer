@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/image-upload', 'ProductController@upload');
     Route::get('/products/{id}', 'ProductController@view');
     Route::get('/product-create', 'ProductController@create');
+    Route::get('/product-chart', 'ProductController@chart');
 
     // user management page
     Route::resource('/users', 'UserController');
